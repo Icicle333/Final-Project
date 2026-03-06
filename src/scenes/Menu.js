@@ -1,14 +1,14 @@
 class Menu extends Phaser.Scene{
     constructor(){
-        super("mainScene");
+        super("menuScene");
     }
     
     create(){
         let menuConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
+            fontFamily : 'Courier',
+            fontSize : '28px',
             backgroundColor: '#F3B141',
-            color: '#FFFFFF',
+            color: '#843605',
             align: 'right',
             padding: {
                 top: 5,
@@ -29,8 +29,6 @@ class Menu extends Phaser.Scene{
             walkRight2: Phaser.Input.Keyboard.KeyCodes.RIGHT
         })
     }   
-    update(){
-        this.console.log("DEBUG")
-    }
+    
 
 }
