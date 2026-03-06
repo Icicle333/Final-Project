@@ -1,16 +1,14 @@
 class Menu extends Phaser.Scene{
     constructor(){
-        super("menuScene");
+        super("mainScene");
     }
-    preload(){
-
-    }
+    
     create(){
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
             backgroundColor: '#F3B141',
-            color: '#000000',
+            color: '#FFFFFF',
             align: 'right',
             padding: {
                 top: 5,
@@ -18,7 +16,8 @@ class Menu extends Phaser.Scene{
             },
             fixedWidth: 0
         }
-
+        
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'TidePooling', menuConfig).setOrigin(0.5)
         this.keys = this.input.keyboard.addKeys({
             walkUp1: Phaser.Input.Keyboard.KeyCodes.W,
             walkUp2: Phaser.Input.Keyboard.KeyCodes.Left,
@@ -29,5 +28,9 @@ class Menu extends Phaser.Scene{
             walkRight1: Phaser.Input.Keyboard.KeyCodes.D,
             walkRight2: Phaser.Input.Keyboard.KeyCodes.RIGHT
         })
+    }   
+    update(){
+        this.console.log("DEBUG")
     }
+
 }
