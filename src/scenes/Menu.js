@@ -2,7 +2,11 @@ class Menu extends Phaser.Scene{
     constructor(){
         super("menuScene");
     }
-    
+    preload() {
+        this.load.image('tempPlayer', './assets/art/Icicle-1.png.png')
+        this.load.image('tempCrab', './assets/art/fire bolt 2.png')
+        this.load.audio('ahhh', './assets/sound/Scream.mp3')
+        }
     create(){
         let menuConfig = {
             fontFamily : 'Courier',
@@ -19,16 +23,21 @@ class Menu extends Phaser.Scene{
         
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'TidePooling', menuConfig).setOrigin(0.5)
         this.keys = this.input.keyboard.addKeys({
-            walkUp1: Phaser.Input.Keyboard.KeyCodes.W,
-            walkUp2: Phaser.Input.Keyboard.KeyCodes.Left,
-            walkDown1: Phaser.Input.Keyboard.KeyCodes.S,
-            walkDown2: Phaser.Input.Keyboard.KeyCodes.DOWN,
-            walkLeft1: Phaser.Input.Keyboard.KeyCodes.A,
-            walkLeft2: Phaser.Input.Keyboard.KeyCodes.LEFT,
-            walkRight1: Phaser.Input.Keyboard.KeyCodes.D,
-            walkRight2: Phaser.Input.Keyboard.KeyCodes.RIGHT
+            gameEnter: Phaser.Input.Keyboard.KeyCodes.ENTER, 
+            compendium: Phaser.Input.Keyboard.KeyCodes.P
         })
     }   
+
+    update() {
+        if (Phaser.Input.Keyboard.JustDown(this.keys.gameEnter)){
+            this.scene.start('walkScene');
+        }
+
+        if(Phaser.Input.Keyboard.JustDown(this.keys.compendium)){
+            console.log("debug")
+            this.scene.start('compendiumScene')
+        }
+    }
     
 
 }
