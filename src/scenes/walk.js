@@ -7,7 +7,7 @@ class Walk extends Phaser.Scene{
     }
     create(){
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
-        this.crab = new Crab(this, 50, 50, 'tempCrab').setDepth(1)
+        this.crab = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         walkUp1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
         walkUp2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
@@ -59,7 +59,7 @@ class Walk extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab, this.player, 50)
+            this.physics.moveToObject(this.crab, this.player, 200)
 
         }
        
