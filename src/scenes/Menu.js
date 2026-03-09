@@ -5,9 +5,20 @@ class Menu extends Phaser.Scene{
     preload() {
         this.load.image('tempPlayer', './assets/art/Icicle-1.png.png')
         this.load.image('tempCrab', './assets/art/fire bolt 2.png')
+        this.load.image('fish', './assets/art/Fish.png')
+        this.load.image('star', './assets/art/Star.png')
+        this.load.image('sc', './assets/art/Sea Cactus Thing.png')
+        this.load.image('tb', './assets/art/Temp TidePool.png')
+        this.load.image('backgroundTemp2', './assets/art/tempBackground2_1_640x480.jpg')
+        this.load.image('backgroundForTitle', './assets/art/tempBackground_1_640x480.jpg')
         this.load.audio('ahhh', './assets/sound/Scream.mp3')
+        this.load.audio('backgroundMusic', './assets/sound/CurrBackgroundMusic.wav')
+
         }
     create(){
+        this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
+        this.sound.add('backgroundMusic', {loop: true})
+        this.sound.play('backgroundMusic')
         let menuConfig = {
             fontFamily : 'Courier',
             fontSize : '28px',

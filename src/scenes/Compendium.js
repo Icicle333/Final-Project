@@ -14,6 +14,7 @@ class Compendium extends Phaser.Scene{
     }
     update(){
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameReturn)){
+            console.log("debug")
             this.scene.start('walkScene');
         }
     }

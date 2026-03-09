@@ -11,7 +11,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Menu, Walk, Compendium]
+    scene: [ Menu, Walk, TidePool, Compendium]
 }
 let game = new Phaser.Game(config)
 let compendium, walkUp1, walkUp2, walkDown1, walkDown2, walkLeft1, walkLeft2, walkRight1, walkRight2

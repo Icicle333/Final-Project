@@ -6,8 +6,9 @@ class Walk extends Phaser.Scene{
         this.canMove = true;
     }
     create(){
-        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer')
-        this.crab = new Crab(this, 50, 50, 'tempCrab')
+        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
+        this.crab = new Crab(this, 50, 50, 'tempCrab').setDepth(1)
+        this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         walkUp1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W)
         walkUp2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
         walkDown1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S)
@@ -17,6 +18,10 @@ class Walk extends Phaser.Scene{
         walkRight1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)
         walkRight2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
+        
+        this.tempPool = this.physics.add.sprite(250, 250, 'tb').setScale(4)
+        this.tempPool.body.setCircle(5)
+        this.tempPool.body.setOffset(13, 11)
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
             crab.x = 50
@@ -30,6 +35,9 @@ class Walk extends Phaser.Scene{
                 callback:this.onEvent,
                 callbackScope: this
             })
+        })
+        this.physics.add.collider(this.player, this.tempPool, (Player, pool) =>{
+            this.scene.start("tidepoolScene")
         })
         
     }
