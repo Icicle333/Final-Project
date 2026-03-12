@@ -12,6 +12,9 @@ class Compendium extends Phaser.Scene{
             gameReturn: Phaser.Input.Keyboard.KeyCodes.ENTER, 
            
         })
+        if(fishFound = true){
+            this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
+        }
     }
     update(){
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameReturn)){

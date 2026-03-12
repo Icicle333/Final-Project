@@ -15,6 +15,15 @@ class TidePool extends Phaser.Scene{
 
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
+            if(animal.texture == 'star'){
+                starFound = true
+            }
+            if(animal.texture = 'sc'){
+                scFound = true
+            }
+            if(animal.texture = 'fish'){
+                fishFound = true
+            }
             animal.found = true;
             animal.setTint('#000000')
         })

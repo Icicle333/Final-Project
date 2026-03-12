@@ -3,6 +3,7 @@ class AquaAnimal extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture)
         scene.add.existing(this)
         this.found = false
+        this.texture = texture
     }
 
 }

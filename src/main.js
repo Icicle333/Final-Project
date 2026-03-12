@@ -15,7 +15,9 @@ let config = {
 }
 let game = new Phaser.Game(config)
 let compendium, walkUp1, walkUp2, walkDown1, walkDown2, walkLeft1, walkLeft2, walkRight1, walkRight2
-
+let scFound = false
+let fishFound = false
+let starFound = false
 
 let borderUISize = game.config.height / 15
 let borderPadding = borderUISize / 3;
