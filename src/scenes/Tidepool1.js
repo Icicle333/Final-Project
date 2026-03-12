@@ -1,6 +1,6 @@
-class TidePool extends Phaser.Scene{
+class TidePool1 extends Phaser.Scene{
     constructor(scene){
-        super("tidepoolScene")
+        super("tidepool1Scene")
         this.toReturn = scene
 
     }

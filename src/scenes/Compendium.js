@@ -12,8 +12,14 @@ class Compendium extends Phaser.Scene{
             gameReturn: Phaser.Input.Keyboard.KeyCodes.ENTER, 
            
         })
-        if(fishFound = true){
+        if(fishFound == true){
             this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
+        }
+        if(scFound == true){
+            this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
+        }
+        if(starFound == true){
+            this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
         }
     }
     update(){
