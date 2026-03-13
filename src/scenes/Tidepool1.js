@@ -7,6 +7,9 @@ class TidePool1 extends Phaser.Scene{
 
     create(){
         //load in images for the set tidepool
+        starFound = false
+        scFound = false
+        fishFound = false
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
         this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
         this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()

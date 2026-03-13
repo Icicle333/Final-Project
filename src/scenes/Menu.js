@@ -3,6 +3,7 @@ class Menu extends Phaser.Scene{
         super("menuScene");
     }
     preload() {
+        //load in images
         this.load.image('tempPlayer', './assets/art/Icicle-1.png.png')
         this.load.image('tempCrab', './assets/art/fire bolt 2.png')
         this.load.image('fish', './assets/art/Fish.png')
@@ -12,6 +13,8 @@ class Menu extends Phaser.Scene{
         this.load.image('backgroundTemp2', './assets/art/tempBackground2_1_640x480.jpg')
         this.load.image('backgroundForTitle', './assets/art/tempBackground_1_640x480.jpg')
         this.load.image('tempBackgroundforCompendium', './assets/art/TempBackgroundForCompendium_cropped.jpg')
+        this.load.image('crab', './assets/art/Crab.png')
+        //load in sounds
         this.load.audio('ahhh', './assets/sound/Scream.mp3')
         this.load.audio('backgroundMusic', './assets/sound/CurrBackgroundMusic.wav')
 

@@ -8,7 +8,7 @@ class Walk extends Phaser.Scene{
     create(){
         //Sprites
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
-        this.crab = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
+        this.crab = new Crab(this, 150, 250, 'crab').setDepth(1)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
         //Keybinding Player Movement
@@ -42,6 +42,7 @@ class Walk extends Phaser.Scene{
         })
         //Enters Tidepool
         this.physics.add.collider(this.player, this.tempPool, (Player, pool) =>{
+            
             this.scene.start("tidepoolScene")
         })
         
@@ -69,7 +70,9 @@ class Walk extends Phaser.Scene{
             this.physics.moveToObject(this.crab, this.player, 200)
 
         }
-       
+       if(tidePools0Found >= 1){
+        this.scene.start("walk1Scene")
+       }
 
 
        

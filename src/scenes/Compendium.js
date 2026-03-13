@@ -4,6 +4,19 @@ class Compendium extends Phaser.Scene{
     }
 
     create(){
+        let compendiumConfig = {
+            fontFamily: 'Times New Roman',
+            fontSize: '24ppx',
+            backgroundColor: '#296017',
+            color: '#dfbb29',
+            align: 'right',
+            padding : {
+                top: 5,
+                bottom: 5
+            },
+            fixedWidth: 0
+        }
+        this.animalsLeft = 6;
         this.background = this.add.tileSprite(0, 0, 640, 480, 'tempBackgroundforCompendium').setOrigin(0, 0)
         this.input.on("pointerdown", (pointer) => {
             console.log("debug")
@@ -13,19 +26,24 @@ class Compendium extends Phaser.Scene{
            
         })
         if(fishFound == true){
-            this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
+            this.add.image(100, 250, 'fish').setScale(5)
+            this.animalsLeft -= 1
         }
         if(scFound == true){
-            this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
+            this.add.image(150, 280, 'sc').setScale(5)
+            this.animalsLeft -= 1
         }
         if(starFound == true){
-            this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
+            this.add.image(250, 400, 'star').setScale(5)
+            this.animalsLeft -= 1
         }
+        this.add.text(game.config.width/100, game.config.height/2 - 150, this.animalsLeft, compendiumConfig)
     }
     update(){
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameReturn)){
             console.log("debug")
             this.scene.start('walkScene');
         }
+        
     }
 }

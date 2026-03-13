@@ -8,7 +8,9 @@ class Walk1 extends Phaser.Scene{
     create(){
         //Sprites
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
-        this.crab = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
+        this.crab1 = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
+        this.crab2 = new Crab(this, 350, 55, 'tempCrab').setDepth(1)
+        this.crab = this.add.group([this.crab1, this.crab2])
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
         //Keybinding Player Movement
@@ -28,8 +30,14 @@ class Walk1 extends Phaser.Scene{
         this.tempPool1.body.setOffset(13, 11)
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
-            crab.x = 50
-            crab.y = 50
+            if(crab == this.crab1){
+                crab.x = 25
+                crab.y = 50
+            }
+            if(crab === this.crab2){
+                crab.x = 350
+                crab.y = 220
+            }
             crab.body.setVelocity(0)
             this.canMove = false
             this.ouch.play()
@@ -66,7 +74,8 @@ class Walk1 extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab, this.player, 200)
+            this.physics.moveToObject(this.crab1, this.player, 200)
+            this.physics.moveToObject(this.crab2, this.player, 200)
 
         }
        

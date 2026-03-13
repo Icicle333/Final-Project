@@ -16,25 +16,32 @@ class TidePool extends Phaser.Scene{
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
-            if(animal.texture == 'star'){
+            if(animal == this.testAnimal1){
                 starFound = true
             }
-            if(animal.texture = 'sc'){
+            if(animal == this.testAnimal2){
                 scFound = true
             }
-            if(animal.texture = 'fish'){
+            if(animal == this.testAnimal3){
                 fishFound = true
             }
+
             animal.found = true;
             animal.setTint('#000000')
         })
         //sets up keys
+        
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
+        returnGame = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
     }
 
     update(){
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
+        }
+        if(Phaser.Input.Keyboard.JustDown(returnGame)){
+            console.log("debug")
+            this.scene.start("walkScene")
         }
     }
 }
