@@ -74,8 +74,8 @@ class Walk1 extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab1, this.player, 200)
-            this.physics.moveToObject(this.crab2, this.player, 200)
+            this.physics.moveToObject(this.crab1, this.player, 150)
+            this.physics.moveToObject(this.crab2, this.player, 50)
 
         }
        

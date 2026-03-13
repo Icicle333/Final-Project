@@ -30,11 +30,17 @@ class TidePool3 extends Phaser.Scene{
         })
         //sets up keys
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
+        returnGame = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
+
     }
 
     update(){
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
+        }
+        if(Phaser.Input.Keyboard.JustDown(returnGame)){
+            console.log("debug")
+            this.scene.start("walkScene")
         }
     }
 }

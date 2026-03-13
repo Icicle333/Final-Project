@@ -27,7 +27,7 @@ class TidePool extends Phaser.Scene{
             }
 
             animal.found = true;
-            animal.setTint('#000000')
+            animal.setTint(0xFF0000)
         })
         //sets up keys
         

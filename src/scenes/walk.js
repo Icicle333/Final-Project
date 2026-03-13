@@ -7,7 +7,7 @@ class Walk extends Phaser.Scene{
     }
     create(){
         //Sprites
-        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
+        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
         this.crab = new Crab(this, 150, 250, 'crab').setDepth(1)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
@@ -33,7 +33,7 @@ class Walk extends Phaser.Scene{
             crab.body.setVelocity(0)
             this.canMove = false
             this.ouch.play()
-            Player.setTint("#ffff00")
+            Player.setTint(0xffff00)
             this.timeEvent = this.time.addEvent({
                 delay: 3000,
                 callback:this.onEvent,
@@ -42,7 +42,10 @@ class Walk extends Phaser.Scene{
         })
         //Enters Tidepool
         this.physics.add.collider(this.player, this.tempPool, (Player, pool) =>{
-            
+            if(tidePool0_1Found == false){
+                tidePool0_1Found = true
+                tidePools0Found += 1
+            }
             this.scene.start("tidepoolScene")
         })
         
@@ -67,11 +70,13 @@ class Walk extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab, this.player, 200)
+            this.physics.moveToObject(this.crab, this.player, 100)
 
         }
        if(tidePools0Found >= 1){
-        this.scene.start("walk1Scene")
+        if(this.player.x == 640){
+            this.scene.start("walk1Scene")
+        }
        }
 
 

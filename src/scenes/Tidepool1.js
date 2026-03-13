@@ -11,7 +11,7 @@ class TidePool1 extends Phaser.Scene{
         scFound = false
         fishFound = false
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
-        this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
+        this.testAnimal1 = new AquaAnimal(this, 350, 50, 'mussel').setScale(2).setInteractive()
         this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
         this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
         
@@ -33,11 +33,16 @@ class TidePool1 extends Phaser.Scene{
         })
         //sets up keys
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
+        returnGame = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
     }
 
     update(){
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
+        }
+        if(Phaser.Input.Keyboard.JustDown(returnGame)){
+            console.log("debug")
+            this.scene.start("walkScene")
         }
     }
 }
