@@ -14,6 +14,9 @@ class Menu extends Phaser.Scene{
         this.load.image('backgroundForTitle', './assets/art/tempBackground_1_640x480.jpg')
         this.load.image('tempBackgroundforCompendium', './assets/art/TempBackgroundForCompendium_cropped.jpg')
         this.load.image('crab', './assets/art/Crab.png')
+        this.load.image('collectableCrab', './assets/art/Crab for Tidepool.png')
+        this.load.image('mussel', './assets/art/Mussel-1.png.png')
+        this.load.image('urchin', './assets/art/Urchin-1.png.png')
         //load in sounds
         this.load.audio('ahhh', './assets/sound/Scream.mp3')
         this.load.audio('backgroundMusic', './assets/sound/CurrBackgroundMusic.wav')
