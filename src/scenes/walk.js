@@ -78,7 +78,7 @@ class Walk extends Phaser.Scene{
 
         }
        if(tidePools0Found >= 1){
-        if(this.player.x == 640){
+        if(this.player.x == 620){
             this.scene.start("walk1Scene")
         }
        }

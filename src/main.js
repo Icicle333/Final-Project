@@ -22,7 +22,11 @@ let scFound = false
 let fishFound = false
 let starFound = false
 let tutorialFinished = false
+//sets up global variables for progression checks, if all are true at the end,
+//the game ends but will need to check if all are true for the full experience
+
 let tidePool0_1Found = false
+
 let tidePools0Found = 0
 let tidePools1Found = 0
 let tidePools2Found = 0

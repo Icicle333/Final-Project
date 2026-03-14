@@ -25,9 +25,14 @@ class Walk1 extends Phaser.Scene{
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
         
         //Crab collision with player and Tidepool collision
-        this.tempPool1 = this.physics.add.sprite(250, 250, 'tb').setScale(4)
-        this.tempPool1.body.setCircle(5)
-        this.tempPool1.body.setOffset(13, 11)
+        this.tidePool1 = this.physics.add.sprite(250, 250, 'tb').setScale(4)
+        this.tidePool1.body.setCircle(5)
+        this.tidePool1.body.setOffset(13, 11)
+
+        this.tidePool2 = this.physics.add.sprite(100, 40, 'tb').setScale(6)
+        this.tidePool2.body.setCircle(5)
+        this.tidePool2.body.setOffset(13, 11)
+
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
             if(crab == this.crab1){
@@ -49,7 +54,7 @@ class Walk1 extends Phaser.Scene{
             })
         })
         //Enters Tidepool, create group and set each specific group to the specific pool
-        this.physics.add.collider(this.player, this.tempPool1, (Player, pool) =>{
+        this.physics.add.collider(this.player, this.tidePool1, (Player, pool) =>{
             this.scene.start("tidepool1Scene")
         })
         
