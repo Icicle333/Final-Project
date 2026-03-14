@@ -42,6 +42,7 @@ class TidePool extends Phaser.Scene{
         
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
         returnGame = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER)
+        tutorialFinished = true
     }
 
     update(){

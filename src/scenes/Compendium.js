@@ -37,6 +37,10 @@ class Compendium extends Phaser.Scene{
             this.add.image(250, 400, 'star').setScale(5)
             this.animalsLeft -= 1
         }
+        if(urchinFound == true){
+            this.add.image(350, 35, 'urchin').setScale(5)
+            this.animalsLeft -= 1
+        }
         this.add.text(game.config.width/100, game.config.height/2 - 150, this.animalsLeft, compendiumConfig)
     }
     update(){

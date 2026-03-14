@@ -30,6 +30,7 @@ class Walk extends Phaser.Scene{
         this.tempPool = this.physics.add.sprite(250, 250, 'tb').setScale(4)
         this.tempPool.body.setCircle(5)
         this.tempPool.body.setOffset(13, 11)
+        this.tempPool.body.setImmovable(true)
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
             crab.x = 50

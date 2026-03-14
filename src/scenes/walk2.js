@@ -7,7 +7,9 @@ class Walk2 extends Phaser.Scene{
     }
     create(){
         //Sprites
+        this.physics.world.setBounds(0, 0, 640, 480)
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
+        this.player.body.setCollideWorldBounds(true)
         this.crab = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
