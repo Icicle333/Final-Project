@@ -6,6 +6,15 @@ class TidePool extends Phaser.Scene{
     }
 
     create(){
+        //create a bubble particle:
+        this.bubbleFollow = this.add.particles(this.input.x, this.input.y, 'bubble', {
+            color: [0x0000FF],
+            speed: 50,
+            scale: {start: 1, end: 0},
+            frequency: 10
+        })
+        this.bubbleFollow.startFollow(this.input.activePointer).setDepth(1)
+       
         //load in images for the set tidepool
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
         this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
@@ -36,6 +45,7 @@ class TidePool extends Phaser.Scene{
     }
 
     update(){
+        
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
         }

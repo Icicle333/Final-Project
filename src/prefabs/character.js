@@ -8,6 +8,7 @@ class Character extends Phaser.GameObjects.Sprite{
 
        
         this.body.setImmovable(true)
+        
     }
     
 }

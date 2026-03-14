@@ -6,9 +6,13 @@ class Walk extends Phaser.Scene{
         this.canMove = true;
     }
     create(){
+        this.physics.world.setBounds(0, 0, 640, 480)
         //Sprites
+        
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
+        this.player.body.setCollideWorldBounds(true)
         this.crab = new Crab(this, 150, 250, 'crab').setDepth(1)
+        this.crab.body.setCollideWorldBounds(true)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
         //Keybinding Player Movement
