@@ -25,9 +25,24 @@ class Walk2 extends Phaser.Scene{
         compendium = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P)
         
         //Crab collision with player and Tidepool collision
-        this.tempPool1 = this.physics.add.sprite(250, 250, 'tb').setScale(4)
-        this.tempPool1.body.setCircle(5)
-        this.tempPool1.body.setOffset(13, 11)
+        this.tidePool1 = this.physics.add.sprite(250, 250, 'tb').setScale(4)
+        this.tidePool1.body.setCircle(5)
+        this.tidePool1.body.setOffset(13, 11)
+        this.tidePool1.body.setImmovable(true)
+
+        this.tidePool2 = this.physics.add.sprite(100, 40, 'tb').setScale(6)
+        this.tidePool2.body.setCircle(5)
+        this.tidePool2.body.setOffset(13, 11)
+        this.tidePool2.body.setImmovable(true)
+
+        this.tidePool3 = this.physics.add.sprite(450, 300, 'tb').setScale(3)
+        this.tidePool3.body.setCircle(5)
+        this.tidePool3.body.setOffset(13,11)
+        this.tidePool3.body.setImmovable(true)
+        //Crab collision with player and Tidepool collision
+        this.tidePool4 = this.physics.add.sprite(350, 150, 'tb').setScale(4)
+        this.tidePool4.body.setCircle(5)
+        this.tidePool4.body.setOffset(13, 11)
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
             crab.x = 50
@@ -71,7 +86,16 @@ class Walk2 extends Phaser.Scene{
             this.physics.moveToObject(this.crab, this.player, 200)
 
         }
-       
+       if(scFound == true 
+        && fishFound == true 
+        && starFound == true
+        && urchinFound == true
+        && musselFound == true 
+        && crabFound == true){
+            if(this.player.x == 620){
+                this.scene.start("messageScene")
+            }
+        }
 
 
        

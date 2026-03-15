@@ -19,6 +19,7 @@ class Menu extends Phaser.Scene{
         this.load.image('mussel', './assets/art/Mussel-1.png.png')
         this.load.image('urchin', './assets/art/Urchin-1.png.png')
         this.load.image('bubble', './assets/art/Bubble Particle-1.png.png')
+        this.load.image('messageImage', './assets/art/Message_Image_640x480.jpg')
         //load in sounds
         this.load.audio('ahhh', './assets/sound/Scream.mp3')
         this.load.audio('backgroundMusic', './assets/sound/CurrBackgroundMusic.wav')
@@ -49,7 +50,8 @@ class Menu extends Phaser.Scene{
         
         this.keys = this.input.keyboard.addKeys({
             gameEnter: Phaser.Input.Keyboard.KeyCodes.ENTER, 
-            compendium: Phaser.Input.Keyboard.KeyCodes.P
+            compendium: Phaser.Input.Keyboard.KeyCodes.P,
+            debugForMessage: Phaser.Input.Keyboard.KeyCodes.M
         })
     }   
 
@@ -62,6 +64,10 @@ class Menu extends Phaser.Scene{
             console.log("debug")
             this.scene.start('compendiumScene')
         }
+        if(Phaser.Input.Keyboard.JustDown(this.keys.debugForMessage)){
+            this.scene.start('messageScene')
+        }
+
     }
     
 

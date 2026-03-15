@@ -117,6 +117,11 @@ class Walk1 extends Phaser.Scene{
             this.physics.moveToObject(this.crab2, this.player, 50)
 
         }
+        if(tidePools1Found >= 3){
+            if(this.player.x == 620){
+                this.scene.start("walk2Scene")
+            }
+        }
        
 
 

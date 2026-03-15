@@ -11,10 +11,10 @@ let config = {
             debug: true
         }
     },
-    scene: [ Menu, Walk, Walk1, Walk2, TidePool, TidePool1, TidePool2, TidePool3, TidePool4, TidePool5, TidePool6, TidePool7, Compendium]
+    scene: [ Menu, Walk, Walk1, Walk2, TidePool, TidePool1, TidePool2, TidePool3, TidePool4, TidePool5, TidePool6, TidePool7, Compendium, Message]
 }
 let game = new Phaser.Game(config)
-let compendium, returnGame, walkUp1, walkUp2, walkDown1, walkDown2, walkLeft1, walkLeft2, walkRight1, walkRight2
+let compendium, returnGame, walkUp1, walkUp2, walkDown1, walkDown2, walkLeft1, walkLeft2, walkRight1, walkRight2, debugForMessage
 
 
 //Global variables for progression markers

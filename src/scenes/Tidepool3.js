@@ -17,19 +17,17 @@ class TidePool3 extends Phaser.Scene{
        
         //load in images for the set tidepool
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
-        this.animal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
-        this.animal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
+        this.animal1 = new AquaAnimal(this, 350, 50, 'collectableCrab').setScale(2).setInteractive()
+        this.animal2 = new AquaAnimal(this, 150, 150, 'collectableCrab').setScale(5).setInteractive()
+        this.animal2.setTint(0x00FF00)
         this.animal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
         
         this.animals = this.add.group([this.animal1, this.animal2, this.animal3])
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
-            if(animal.texture == 'star'){
-                starFound = true
-            }
-            if(animal.texture = 'sc'){
-                scFound = true
+            if(animal.texture == 'collectableCrab'){
+                crabFound = true
             }
             if(animal.texture = 'fish'){
                 fishFound = true
