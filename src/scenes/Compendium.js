@@ -30,7 +30,7 @@ class Compendium extends Phaser.Scene{
             this.animalsLeft -= 1
         }
         if(scFound == true){
-            this.add.image(150, 280, 'sc').setScale(5)
+            this.add.image(150, 80, 'sc').setScale(5)
             this.animalsLeft -= 1
         }
         if(starFound == true){
@@ -40,6 +40,9 @@ class Compendium extends Phaser.Scene{
         if(urchinFound == true){
             this.add.image(350, 35, 'urchin').setScale(5)
             this.animalsLeft -= 1
+        }
+        if(crabFound == true){
+            this.add.image()
         }
         this.add.text(game.config.width/100, game.config.height/2 - 150, this.animalsLeft, compendiumConfig)
     }

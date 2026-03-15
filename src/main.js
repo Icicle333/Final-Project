@@ -31,11 +31,19 @@ let resetOnce = false
 
 //these boolean values are made to make sure that the counter doesn't increment
 //on already searched tidepools
+//Tutorial Tidepool
 let tidePool0_1Found = false
+
+//Beach 1 Tidepool
 let tidePool1_1Found = false
 let tidePool1_2Found = false
 let tidePool1_3Found = false
 
+//Beach 2 Tidepool
+let tidePool2_1Found = false
+let tidePool2_2Found = false
+let tidePool2_3Found = false
+let tidePool2_4Found = false
 //these int values are counters so that way once you check all of the tide pools,
 //you can move onto the next area
 //using int values to prevent massive boolean if statement

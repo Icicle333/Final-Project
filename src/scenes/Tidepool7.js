@@ -49,7 +49,7 @@ class TidePool7 extends Phaser.Scene{
         }
         if(Phaser.Input.Keyboard.JustDown(returnGame)){
             console.log("debug")
-            this.scene.start("walkScene")
+            this.scene.start("walk2Scene")
         }
     }
 }

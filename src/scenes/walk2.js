@@ -8,7 +8,7 @@ class Walk2 extends Phaser.Scene{
     create(){
         //Sprites
         this.physics.world.setBounds(0, 0, 640, 480)
-        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
+        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
         this.player.body.setCollideWorldBounds(true)
         this.crab = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
@@ -43,6 +43,8 @@ class Walk2 extends Phaser.Scene{
         this.tidePool4 = this.physics.add.sprite(350, 150, 'tb').setScale(4)
         this.tidePool4.body.setCircle(5)
         this.tidePool4.body.setOffset(13, 11)
+
+        this.tidePool
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
             crab.x = 50
@@ -58,8 +60,38 @@ class Walk2 extends Phaser.Scene{
             })
         })
         //Enters Tidepool, create group and set each specific group to the specific pool
-        this.physics.add.collider(this.player, this.tempPool1, (Player, pool) =>{
-            this.scene.start("tidepool1Scene")
+        this.tidePool = this.add.group([this.tidePool1, this.tidePool2, this.tidePool3, this.tidePool4])
+        this.physics.add.collider(this.player, this.tidePool, (Player, pool) =>{
+            if(pool == this.tidePool1){
+                if(tidePool2_1Found == false){
+                    tidePool2_1Found = true
+                    tidePools2Found += 1
+                }
+                this.scene.start("tidepool4Scene")
+
+            }
+            if(pool == this.tidePool2){
+                if(tidePool2_2Found == false){
+                    tidePool2_2Found = true
+                    tidePools2Found += 1
+                }
+                this.scene.start("tidepool5Scene")
+            }
+            if(pool == this.tidePool3){
+                if(tidePool2_3Found == false){
+                    tidePool2_3Found == true
+                    tidePools2Found +=1
+                }
+                this.scene.start("tidepool6Scene")
+            }
+            if(pool == this.tidePool4){
+                if(tidePool2_4Found == false){
+                    tidePool2_4Found = true
+                    tidePools2Found += 1
+                }
+                this.scene.start("tidepool7Scene")
+            }
+            
         })
         
     }
@@ -86,12 +118,7 @@ class Walk2 extends Phaser.Scene{
             this.physics.moveToObject(this.crab, this.player, 200)
 
         }
-       if(scFound == true 
-        && fishFound == true 
-        && starFound == true
-        && urchinFound == true
-        && musselFound == true 
-        && crabFound == true){
+       if(scFound == true && fishFound == true && starFound == true && urchinFound == true && musselFound == true && crabFound == true){
             if(this.player.x == 620){
                 this.scene.start("messageScene")
             }

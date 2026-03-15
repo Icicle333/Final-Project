@@ -16,9 +16,9 @@ class TidePool4 extends Phaser.Scene{
         this.bubbleFollow.startFollow(this.input.activePointer).setDepth(1)
        //load in images for the set tidepool
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
-        this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
+        this.testAnimal1 = new AquaAnimal(this, 350, 50, 'collectableCrab').setScale(2).setInteractive()
         this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
-        this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
+        this.testAnimal3 = new AquaAnimal(this, 550, 450, 'urchin').setScale(6).setInteractive()
         
         this.animals = this.add.group([this.testAnimal1, this.testAnimal2, this.testAnimal3])
         //adds animal to compendium when clicked
@@ -48,7 +48,7 @@ class TidePool4 extends Phaser.Scene{
         }
         if(Phaser.Input.Keyboard.JustDown(returnGame)){
             console.log("debug")
-            this.scene.start("walkScene")
+            this.scene.start("walk2Scene")
         }
     }
 }

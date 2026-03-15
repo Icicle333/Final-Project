@@ -7,7 +7,7 @@ class TidePool extends Phaser.Scene{
 
     create(){
         //create a bubble particle:
-        this.bubbleFollow = this.add.particles(this.input.x, this.input.y, 'bubble', {
+        this.bubbleFollow = this.add.particles(0, 0, 'bubble', {
             color: [0x0000FF],
             speed: 50,
             scale: {start: 1, end: 0},
@@ -36,7 +36,7 @@ class TidePool extends Phaser.Scene{
             }
 
             animal.found = true;
-            animal.setTint(0xFF0000)
+            animal.setTint(0x000000)
         })
         //sets up keys
         
