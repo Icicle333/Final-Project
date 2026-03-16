@@ -13,7 +13,7 @@ class Menu extends Phaser.Scene{
         this.load.image('player', './assets/art/Character Idle-1.png.png')
         
         //player sprite sheet
-        this.load.spritesheet('playerAnim', './assets/sprite_sheet.png', {
+        this.load.spritesheet('playerAnim', './assets/art/sprite_sheet.png', {
             frameWidth: 32,
             frameHeight: 32
         })
