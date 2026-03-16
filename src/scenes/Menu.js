@@ -20,6 +20,7 @@ class Menu extends Phaser.Scene{
         this.load.image('urchin', './assets/art/Urchin-1.png.png')
         this.load.image('bubble', './assets/art/Bubble Particle-1.png.png')
         this.load.image('messageImage', './assets/art/Message_Image_640x480.jpg')
+        this.load.image('arrow' ,'./assets/art/Arrow-1.png.png')
         //load in sounds
         this.load.audio('ahhh', './assets/sound/Scream.mp3')
         this.load.audio('backgroundMusic', './assets/sound/CurrBackgroundMusic.wav')

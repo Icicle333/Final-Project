@@ -17,11 +17,18 @@ class TidePool2 extends Phaser.Scene{
        
         //load in images for the set tidepool
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
-        this.animal1 = new AquaAnimal(this, 350, 50, 'urchin').setScale(2).setInteractive()
+        
+        //create random x values
+        this.value1 = Phaser.Math.Between(300, 400)
+        this.value2 = Phaser.Math.Between(100, 200)
+        this.value3 = Phaser.Math.Between(500, 600)
+
+        //load in animals
+        this.animal1 = new AquaAnimal(this, this.value1, 50, 'urchin').setScale(2).setInteractive()
         this.animal1.setTint(0x337d3d)
-        this.animal2 = new AquaAnimal(this, 150, 150, 'urchin').setScale(5).setInteractive()
+        this.animal2 = new AquaAnimal(this, this.value2, 150, 'urchin').setScale(5).setInteractive()
         this.animal2.setTint(0x0000FF)
-        this.animal3 = new AquaAnimal(this, 550, 450, 'urchin').setScale(6).setInteractive()
+        this.animal3 = new AquaAnimal(this, this.value3, 450, 'urchin').setScale(6).setInteractive()
         
         this.animals = this.add.group([this.animal1, this.animal2, this.animal3])
         //adds animal to compendium when clicked
