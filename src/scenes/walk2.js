@@ -115,10 +115,10 @@ class Walk2 extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab, this.player, 200)
+            this.physics.moveToObject(this.crab, this.player, 20)
 
         }
-       if(scFound == true && fishFound == true && starFound == true && urchinFound == true && musselFound == true && crabFound == true){
+       if(scFound && fishFound && starFound && urchinFound && musselFound && crabFound){
             if(this.player.x == 620){
                 this.scene.start("messageScene")
             }

@@ -42,7 +42,10 @@ class Compendium extends Phaser.Scene{
             this.animalsLeft -= 1
         }
         if(crabFound == true){
-            this.add.image()
+            this.add.image(450, 35, 'collectableCrab').setScale(5)
+        }
+        if(musselFound == true){
+            this.add.image(50, 352, 'mussel').setScale(5)
         }
         this.add.text(game.config.width/100, game.config.height/2 - 150, this.animalsLeft, compendiumConfig)
     }

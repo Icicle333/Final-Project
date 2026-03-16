@@ -30,13 +30,13 @@ class TidePool1 extends Phaser.Scene{
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
-            if(animal.texture == 'star'){
-                starFound = true
+            if(animal.texture == 'mussel'){
+                musselFound = true
             }
-            if(animal.texture = 'sc'){
+            if(animal.texture == 'sc'){
                 scFound = true
             }
-            if(animal.texture = 'fish'){
+            if(animal.texture == 'fish'){
                 fishFound = true
             }
             animal.found = true;

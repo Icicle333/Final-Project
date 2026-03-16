@@ -29,7 +29,7 @@ class TidePool3 extends Phaser.Scene{
             if(animal.texture == 'collectableCrab'){
                 crabFound = true
             }
-            if(animal.texture = 'fish'){
+            if(animal.texture == 'fish'){
                 fishFound = true
             }
             animal.found = true;
