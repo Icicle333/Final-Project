@@ -7,7 +7,7 @@ class TidePool7 extends Phaser.Scene{
 
     create(){
          //create a bubble particle:
-        this.bubbleFollow = this.add.particles(this.input.x, this.input.y, 'bubble', {
+        this.bubbleFollow = this.add.particles(0, 0, 'bubble', {
             color: [0x0000FF],
             speed: 50,
             scale: {start: 1, end: 0},
@@ -17,22 +17,21 @@ class TidePool7 extends Phaser.Scene{
        
         //load in images for the set tidepool
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundTemp2').setOrigin(0, 0)
-        this.testAnimal1 = new AquaAnimal(this, 350, 50, 'star').setScale(2).setInteractive()
-        this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
-        this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
-        
-        this.animals = this.add.group([this.testAnimal1, this.testAnimal2, this.testAnimal3])
+        this.animal1 = new AquaAnimal(this, 350, 50, 'mussel').setScale(2).setInteractive()
+        this.animal1.setTint(0x4E3B31)
+        this.animal2 = new AquaAnimal(this, 150, 150, 'mussel').setScale(5).setInteractive()
+        this.animal2.setTint(0x6D3F5B)
+        this.animal3 = new AquaAnimal(this, 550, 450, 'star').setScale(6).setInteractive()
+        this.animal3.setTint(0x898176)
+        this.animals = this.add.group([this.animal1, this.animal2, this.animal3])
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
+            if(animal.texture == 'mussel'){
+                musselFound = true
+            }
             if(animal.texture == 'star'){
                 starFound = true
-            }
-            if(animal.texture == 'sc'){
-                scFound = true
-            }
-            if(animal.texture == 'fish'){
-                fishFound = true
             }
             animal.found = true;
             animal.setTint('#000000')
