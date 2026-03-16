@@ -1,8 +1,11 @@
 canvas {
-    border-image-source: url(https://1drv.ms/i/c/2f0160004286c85e/IQAaNtr_CyxlTIWYJtlsXdH9AQNGmbUsJjKSRMurXcMtLVI?e=a8vUYh);
+    
+    border-image-source: url("Credits_Image_640x480.jpg");
     border-image-slice: 30;
-    border-image-repeat: round;
     border-style: solid;
-    border-width: 20px
-
+    border-width: 20px;
+    padding: 10px;
+    box-shadow:
+        0 0 0 5px
+        
 }
