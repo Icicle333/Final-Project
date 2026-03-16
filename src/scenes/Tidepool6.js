@@ -29,10 +29,17 @@ class TidePool6 extends Phaser.Scene{
         this.animal2.setTint(0xFF2301)
         this.animal3 = new AquaAnimal(this, this.value3, 450, 'collectableCrab').setScale(6).setInteractive()
         this.animal3.setTint(0x3E3B32)
+
+        //groups animals together
         this.animals = this.add.group([this.animal1, this.animal2, this.animal3])
+        
+        //sound effect for clicking animal
+        this.collection = this.sound.add('collection')
+        
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
+            this.collection.play()
             if(animal.texture == 'collectableCrab'){
                 starFound = true
             }
@@ -45,7 +52,7 @@ class TidePool6 extends Phaser.Scene{
     }
 
     update(){
-        //key binds to leave scene
+        //keys to leave scene
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
         }

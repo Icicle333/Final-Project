@@ -3,7 +3,9 @@ class Message extends Phaser.Scene{
         super("messageScene");
     }
     create(){
+        //add background image
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'messageImage').setOrigin(0, 0)
+        //text config
         let messageConfig = {
             fontFamily : 'Courier',
             fontSize : '10px',
@@ -16,6 +18,7 @@ class Message extends Phaser.Scene{
             },
             fixedWidth: 0
         }
+        //text
         this.add.text(game.config.width/2.5, game.config.height/4.5 - borderUISize - borderPadding * 0.3, 'Dear Squad', messageConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/3.5 - borderUISize - borderPadding * 0.3, 'Since meeting you all last year, I can\'t ever imagine my life without you all.', messageConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2.5 - borderUISize - borderPadding * 0.3, 'No matter which paths we may walk along after college, I will always hold you all inside my heart', messageConfig).setOrigin(0.5)

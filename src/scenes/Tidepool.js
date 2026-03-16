@@ -21,10 +21,16 @@ class TidePool extends Phaser.Scene{
         this.testAnimal2 = new AquaAnimal(this, 150, 150, 'sc').setScale(5).setInteractive()
         this.testAnimal3 = new AquaAnimal(this, 550, 450, 'fish').setScale(6).setInteractive()
         
+        //collection sound
+        this.collection = this.sound.add('collection')
+        
+        //groups animal sprites together
         this.animals = this.add.group([this.testAnimal1, this.testAnimal2, this.testAnimal3])
+        
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
+            this.collection.play()
             if(animal == this.testAnimal1){
                 starFound = true
             }
@@ -46,7 +52,7 @@ class TidePool extends Phaser.Scene{
     }
 
     update(){
-        
+        //keys to leave scenes
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
         }

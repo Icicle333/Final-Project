@@ -28,10 +28,17 @@ class TidePool7 extends Phaser.Scene{
         this.animal2.setTint(0x6D3F5B)
         this.animal3 = new AquaAnimal(this, this.value2, 450, 'star').setScale(6).setInteractive()
         this.animal3.setTint(0x898176)
+        
+        //groups animals together
         this.animals = this.add.group([this.animal1, this.animal2, this.animal3])
+        
+        //sound effect for clicking animal
+        this.collection = this.sound.add('collection')
+        
         //adds animal to compendium when clicked
         this.input.on('gameobjectdown', (pointer, animal) => {
             console.log('Clicked: ', animal)
+            this.collection.play()
             if(animal.texture == 'mussel'){
                 musselFound = true
             }
@@ -48,6 +55,7 @@ class TidePool7 extends Phaser.Scene{
     }
 
     update(){
+        //keys to leave scenes
         if(Phaser.Input.Keyboard.JustDown(compendium)){
             this.scene.start("compendiumScene")
         }

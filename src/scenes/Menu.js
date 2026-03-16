@@ -35,12 +35,15 @@ class Menu extends Phaser.Scene{
         //load in sounds
         this.load.audio('ahhh', './assets/sound/Scream.mp3')
         this.load.audio('backgroundMusic', './assets/sound/CurrBackgroundMusic.wav')
-
+        this.load.audio('collection', './assets/sound/Fish Found.wav')
         }
     create(){
+        //background image
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
+        //background music set up
         sound = this.sound.add('backgroundMusic', {loop: true})
         sound.play()
+        //text config
         let menuConfig = {
             fontFamily : 'Courier',
             fontSize : '18px',
@@ -53,13 +56,13 @@ class Menu extends Phaser.Scene{
             },
             fixedWidth: 0
         }
-        
+        //tutorial text
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'TidePooling', menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding+50, "To Move, press WASD or Arrow", menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding+100, "To Enter Game, press Enter, to get to Compendium press P", menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding+150, "Walk up to a tidepool to look in it, don't get hit by crabs", menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding+200, "click on animals to add them to your compendium", menuConfig).setOrigin(0.5)
-        
+        //keybinds
         this.keys = this.input.keyboard.addKeys({
             gameEnter: Phaser.Input.Keyboard.KeyCodes.ENTER, 
             compendium: Phaser.Input.Keyboard.KeyCodes.P,
@@ -70,7 +73,7 @@ class Menu extends Phaser.Scene{
     }   
 
     update() {
-        
+        //keybinds to start game/switch scenes
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameEnter)){
             sound.stop()
             this.scene.start('walkScene');
