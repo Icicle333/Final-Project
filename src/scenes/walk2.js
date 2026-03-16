@@ -6,11 +6,30 @@ class Walk2 extends Phaser.Scene{
         this.canMove = true;
     }
     create(){
+        //animation for player getting hurt
+        this.anims.create({
+            key: 'hurt',
+            frames: this.anims.generateFrameNumbers('playerAnim', {
+                start: 0,
+                end: 2
+            }),
+            frameRate: 10,
+            repeat: -1
+        })
+        //animation or frame for when the player can move again
+        this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('playerAnim', {
+                start: 2,
+                end: 2
+            }),
+
+        })
         //Sprites
         this.physics.world.setBounds(0, 0, 640, 480)
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
         this.player.body.setCollideWorldBounds(true)
-        this.crab = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
+        this.crab = new Crab(this, 150, 250, 'crab').setDepth(1)
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
         //Keybinding Player Movement
@@ -47,6 +66,7 @@ class Walk2 extends Phaser.Scene{
         this.tidePool
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
+            this.player.play('hurt')
             crab.x = 50
             crab.y = 50
             crab.body.setVelocity(0)
@@ -130,7 +150,7 @@ class Walk2 extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab, this.player, 20)
+            this.physics.moveToObject(this.crab, this.player, 30)
 
         }
         if(this.player.x == 20){
@@ -148,6 +168,8 @@ class Walk2 extends Phaser.Scene{
     onEvent(){
         this.canMove = true
         this.player.clearTint();
+        this.player.anims.stop();
+        this.player.anims.play('walk')
     }
     
 }

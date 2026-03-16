@@ -7,6 +7,23 @@ class Walk1 extends Phaser.Scene{
     }
     create(){
         //Sprites
+        this.anims.create({
+            key: 'hurt',
+            frames: this.anims.generateFrameNumbers('playerAnim', {
+                start: 0,
+                end: 2
+            }),
+            frameRate: 10,
+            repeat: -1
+        })
+        this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('playerAnim', {
+                start: 2,
+                end: 2
+            }),
+
+        })
         this.physics.world.setBounds(0, 0, 640, 480)
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
         this.player.body.setCollideWorldBounds(true)
@@ -47,6 +64,7 @@ class Walk1 extends Phaser.Scene{
         
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
+            this.player.play('hurt')
             if(crab == this.crab1){
                 crab.x = 25
                 crab.y = 50
@@ -147,6 +165,8 @@ class Walk1 extends Phaser.Scene{
     onEvent(){
         this.canMove = true
         this.player.clearTint();
+        this.player.anims.stop()
+        this.player.anims.play('walk')
     }
     
 }
