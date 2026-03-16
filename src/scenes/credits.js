@@ -3,7 +3,9 @@ class Credit extends Phaser.Scene{
         super("creditsScene");
     }
     create(){
+        //background image
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'creditsImage').setOrigin(0, 0)
+        //credit text config
         let creditsConfig = {
             fontFamily : 'Courier',
             fontSize : '10px',
@@ -16,9 +18,11 @@ class Credit extends Phaser.Scene{
             },
             fixedWidth: 0
         }
+        //keybind
         this.keys = this.input.keyboard.addKeys({
             gameEnter: Phaser.Input.Keyboard.KeyCodes.ENTER 
         })
+        //text
         this.add.text(game.config.width/2.5, game.config.height/2.5 - borderUISize - borderPadding * 0.3, 'Press Enter to return to Title Screen', creditsConfig).setOrigin(0.5)
 
         this.add.text(game.config.width/2.5, game.config.height/1.5 - borderUISize - borderPadding * 0.3, 'Background images courtesy of my friend group discord server', creditsConfig).setOrigin(0.5)
@@ -27,7 +31,7 @@ class Credit extends Phaser.Scene{
         this.add.text(game.config.width/2.4, game.config.height - borderUISize - borderPadding * 0.3, 'All other assets, code, and art created by me using Piscel, Visual Studio, and Beep Box', creditsConfig).setOrigin(0.5)
     }
     update() {
-        
+        //key to leave scene
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameEnter)){
             this.scene.start('menuScene');
         }

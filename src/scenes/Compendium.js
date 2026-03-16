@@ -4,9 +4,10 @@ class Compendium extends Phaser.Scene{
     }
 
     create(){
+        //text config
         let compendiumConfig = {
             fontFamily: 'Times New Roman',
-            fontSize: '24ppx',
+            fontSize: '40px',
             backgroundColor: '#296017',
             color: '#dfbb29',
             align: 'right',
@@ -16,6 +17,7 @@ class Compendium extends Phaser.Scene{
             },
             fixedWidth: 0
         }
+        
         this.animalsLeft = 6;
         this.background = this.add.tileSprite(0, 0, 640, 480, 'tempBackgroundforCompendium').setOrigin(0, 0)
         this.input.on("pointerdown", (pointer) => {
@@ -47,7 +49,7 @@ class Compendium extends Phaser.Scene{
         if(musselFound == true){
             this.add.image(50, 352, 'mussel').setScale(5)
         }
-        this.add.text(game.config.width/100, game.config.height/2 - 150, this.animalsLeft, compendiumConfig)
+        this.add.text(game.config.width/2.5, 0, 'animals left: ' + this.animalsLeft, compendiumConfig)
     }
     update(){
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameReturn)){
