@@ -8,7 +8,7 @@ class Walk1 extends Phaser.Scene{
     create(){
         //Sprites
         this.physics.world.setBounds(0, 0, 640, 480)
-        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'tempPlayer').setDepth(1)
+        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
         this.player.body.setCollideWorldBounds(true)
         this.crab1 = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
         this.crab2 = new Crab(this, 350, 255, 'tempCrab').setDepth(1)
@@ -91,7 +91,21 @@ class Walk1 extends Phaser.Scene{
             }
             
         })
+        if(tidePools1Found >= 3){
+            this.arrow1 = this.add.sprite(620, 100, 'arrow')
+            this.arrow2 = this.add.sprite(620, 200, 'arrow')
+            this.arrow3 = this.add.sprite(620, 300, 'arrow')
+            this.arrow4 = this.add.sprite(620, 400, 'arrow')
+            this.tweens.add({
+                targets: [this.arrow1, this.arrow2, this.arrow3, this.arrow4],
+                alpha: 0,
+                duration: 500,
+                ease: 'Linear',
+                yoyo: true,
+                repeat: -1
+            })
         
+        }
     }
 
     update(){
@@ -116,6 +130,9 @@ class Walk1 extends Phaser.Scene{
             this.physics.moveToObject(this.crab1, this.player, 150)
             this.physics.moveToObject(this.crab2, this.player, 50)
 
+        }
+        if(this.player.x == 20){
+            this.scene.start("walkScene")
         }
         if(tidePools1Found >= 3){
             if(this.player.x == 620){

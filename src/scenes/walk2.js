@@ -93,6 +93,21 @@ class Walk2 extends Phaser.Scene{
             }
             
         })
+        if(scFound && fishFound && starFound && urchinFound && musselFound && crabFound){
+            this.arrow1 = this.add.sprite(620, 100, 'arrow')
+            this.arrow2 = this.add.sprite(620, 200, 'arrow')
+            this.arrow3 = this.add.sprite(620, 300, 'arrow')
+            this.arrow4 = this.add.sprite(620, 400, 'arrow')
+            this.tweens.add({
+                targets: [this.arrow1, this.arrow2, this.arrow3, this.arrow4],
+                alpha: 0,
+                duration: 500,
+                ease: 'Linear',
+                yoyo: true,
+                repeat: -1
+            })
+        
+        }
         
     }
 
@@ -117,6 +132,9 @@ class Walk2 extends Phaser.Scene{
             }
             this.physics.moveToObject(this.crab, this.player, 20)
 
+        }
+        if(this.player.x == 20){
+            this.scene.start("walk1Scene")
         }
        if(scFound && fishFound && starFound && urchinFound && musselFound && crabFound){
             if(this.player.x == 620){

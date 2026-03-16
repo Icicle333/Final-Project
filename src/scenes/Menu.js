@@ -3,21 +3,26 @@ class Menu extends Phaser.Scene{
         super("menuScene");
     }
     preload() {
-        //load in images
+        //load in background
+        this.load.image('backgroundTemp2', './assets/art/tempBackground2_1_640x480.jpg')
+        this.load.image('backgroundForTitle', './assets/art/tempBackground_1_640x480.jpg')
+        this.load.image('tempBackgroundforCompendium', './assets/art/TempBackgroundForCompendium_cropped.jpg')
+        
+        //player, both temp and final
         this.load.image('tempPlayer', './assets/art/Icicle-1.png.png')
         this.load.image('player', './assets/art/Character Idle-1.png.png')
+        //temp and final obstacle
+        this.load.image('crab', './assets/art/Crab.png')
         this.load.image('tempCrab', './assets/art/fire bolt 2.png')
+        //collectable animals
         this.load.image('fish', './assets/art/Fish.png')
         this.load.image('star', './assets/art/Star.png')
         this.load.image('sc', './assets/art/Sea Cactus Thing.png')
         this.load.image('tb', './assets/art/Temp TidePool.png')
-        this.load.image('backgroundTemp2', './assets/art/tempBackground2_1_640x480.jpg')
-        this.load.image('backgroundForTitle', './assets/art/tempBackground_1_640x480.jpg')
-        this.load.image('tempBackgroundforCompendium', './assets/art/TempBackgroundForCompendium_cropped.jpg')
-        this.load.image('crab', './assets/art/Crab.png')
         this.load.image('collectableCrab', './assets/art/Crab for Tidepool.png')
         this.load.image('mussel', './assets/art/Mussel-1.png.png')
         this.load.image('urchin', './assets/art/Urchin-1.png.png')
+        //particle + message background and image for arrow
         this.load.image('bubble', './assets/art/Bubble Particle-1.png.png')
         this.load.image('messageImage', './assets/art/Message_Image_640x480.jpg')
         this.load.image('arrow' ,'./assets/art/Arrow-1.png.png')
@@ -54,9 +59,11 @@ class Menu extends Phaser.Scene{
             compendium: Phaser.Input.Keyboard.KeyCodes.P,
             debugForMessage: Phaser.Input.Keyboard.KeyCodes.M
         })
+        
     }   
 
     update() {
+        
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameEnter)){
             this.scene.start('walkScene');
         }
