@@ -6,10 +6,20 @@ class Walk extends Phaser.Scene{
         this.canMove = true;
     }
     create(){
+        //animation for player getting hurt
+        this.anims.create({
+            key: 'hurt',
+            frames: this.anims.generateFrameNumbers('playerAnim', {
+                start: 0,
+                end: 2
+            }),
+            frameRate: 10,
+            repeat: -1
+        })
         this.physics.world.setBounds(0, 0, 640, 480)
         //Sprites
         
-        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
+        this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player', 0).setDepth(1)
         this.player.body.setCollideWorldBounds(true)
         this.crab = new Crab(this, 150, 250, 'crab').setDepth(1)
         this.crab.body.setCollideWorldBounds(true)
@@ -33,6 +43,7 @@ class Walk extends Phaser.Scene{
         this.tempPool.body.setImmovable(true)
         this.ouch = this.sound.add('ahhh')
         this.physics.add.collider(this.player, this.crab, (Player, crab) => {
+            this.player.play('hurt')
             crab.x = 50
             crab.y = 50
             crab.body.setVelocity(0)
@@ -47,6 +58,7 @@ class Walk extends Phaser.Scene{
         })
         //Enters Tidepool
         this.physics.add.collider(this.player, this.tempPool, (Player, pool) =>{
+            
             if(tidePool0_1Found == false){
                 tidePool0_1Found = true
                 tidePools0Found += 1

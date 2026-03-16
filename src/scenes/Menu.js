@@ -11,6 +11,12 @@ class Menu extends Phaser.Scene{
         //player, both temp and final
         this.load.image('tempPlayer', './assets/art/Icicle-1.png.png')
         this.load.image('player', './assets/art/Character Idle-1.png.png')
+        
+        //player sprite sheet
+        this.load.spritesheet('playerAnim', './assets/sprite_sheet.png', {
+            frameWidth: 32,
+            frameHeight: 32
+        })
         //temp and final obstacle
         this.load.image('crab', './assets/art/Crab.png')
         this.load.image('tempCrab', './assets/art/fire bolt 2.png')

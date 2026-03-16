@@ -1,3 +1,8 @@
+//Name: William McCabe
+//Title: Tidepool
+//Approximate hours: 30hr
+
+
 let config = {
     type: Phaser.AUTO,
     width: 640,
