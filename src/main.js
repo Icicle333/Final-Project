@@ -1,8 +1,10 @@
 //Name: William McCabe
 //Title: Tidepool
 //Approximate hours: 30hr
-
-
+//Comment for grader: I am not an artist, my art is really bad but I am always trying new things and experiementing 
+//with games types that I have never made before. This type of game was trying to reflect a sort of collection esc game like Pokemon
+//but instead of Pokeballs, it was clicking/recording data into a global progress checker
+//Once finding one of each type, you can enter the final scene which ends the game. 
 let config = {
     type: Phaser.AUTO,
     width: 640,
@@ -16,7 +18,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Menu, Walk, Walk1, Walk2, TidePool, TidePool1, TidePool2, TidePool3, TidePool4, TidePool5, TidePool6, TidePool7, Compendium, Message]
+    scene: [ Menu, Walk, Walk1, Walk2, TidePool, TidePool1, TidePool2, TidePool3, TidePool4, TidePool5, TidePool6, TidePool7, Compendium, Message, Credit]
 }
 let game = new Phaser.Game(config)
 let compendium, returnGame, walkUp1, walkUp2, walkDown1, walkDown2, walkLeft1, walkLeft2, walkRight1, walkRight2, debugForMessage

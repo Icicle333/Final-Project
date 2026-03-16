@@ -7,7 +7,7 @@ class Menu extends Phaser.Scene{
         this.load.image('backgroundTemp2', './assets/art/tempBackground2_1_640x480.jpg')
         this.load.image('backgroundForTitle', './assets/art/tempBackground_1_640x480.jpg')
         this.load.image('tempBackgroundforCompendium', './assets/art/TempBackgroundForCompendium_cropped.jpg')
-        
+        this.load.image('creditsImage', './assets/art/Credits_Image_640x480.jpg')
         //player, both temp and final
         this.load.image('tempPlayer', './assets/art/Icicle-1.png.png')
         this.load.image('player', './assets/art/Character Idle-1.png.png')
@@ -63,7 +63,8 @@ class Menu extends Phaser.Scene{
         this.keys = this.input.keyboard.addKeys({
             gameEnter: Phaser.Input.Keyboard.KeyCodes.ENTER, 
             compendium: Phaser.Input.Keyboard.KeyCodes.P,
-            debugForMessage: Phaser.Input.Keyboard.KeyCodes.M
+            debugForMessage: Phaser.Input.Keyboard.KeyCodes.M,
+            credits: Phaser.Input.Keyboard.KeyCodes.C
         })
         
     }   
@@ -83,6 +84,10 @@ class Menu extends Phaser.Scene{
         if(Phaser.Input.Keyboard.JustDown(this.keys.debugForMessage)){
             sound.stop()
             this.scene.start('messageScene')
+        }
+        if(Phaser.Input.Keyboard.JustDown(this.keys.credits)){
+            sound.stop()
+            this.scene.start('creditsScene')
         }
 
     }
