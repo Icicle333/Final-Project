@@ -7,6 +7,9 @@ class Walk extends Phaser.Scene{
     }
     create(){
         //animation for player getting hurt
+        
+        sound = this.sound.add('backgroundMusic', {loop: true})
+        sound.play()
         this.anims.create({
             key: 'hurt',
             frames: this.anims.generateFrameNumbers('playerAnim', {
@@ -72,6 +75,7 @@ class Walk extends Phaser.Scene{
                 tidePool0_1Found = true
                 tidePools0Found += 1
             }
+            sound.stop()
             this.scene.start("tidepoolScene")
         })
 
@@ -119,6 +123,7 @@ class Walk extends Phaser.Scene{
         }
        if(tidePools0Found >= 1){
         if(this.player.x == 620){
+            sound.stop()
             this.scene.start("walk1Scene")
         }
        }

@@ -6,6 +6,8 @@ class Walk2 extends Phaser.Scene{
         this.canMove = true;
     }
     create(){
+        sound = this.sound.add('backgroundMusic', {loop: true})
+        sound.play()
         //animation for player getting hurt
         this.anims.create({
             key: 'hurt',
@@ -82,6 +84,7 @@ class Walk2 extends Phaser.Scene{
         //Enters Tidepool, create group and set each specific group to the specific pool
         this.tidePool = this.add.group([this.tidePool1, this.tidePool2, this.tidePool3, this.tidePool4])
         this.physics.add.collider(this.player, this.tidePool, (Player, pool) =>{
+            sound.stop()
             if(pool == this.tidePool1){
                 if(tidePool2_1Found == false){
                     tidePool2_1Found = true

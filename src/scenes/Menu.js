@@ -39,8 +39,8 @@ class Menu extends Phaser.Scene{
         }
     create(){
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
-        this.sound.add('backgroundMusic', {loop: true})
-        this.sound.play('backgroundMusic')
+        sound = this.sound.add('backgroundMusic', {loop: true})
+        sound.play()
         let menuConfig = {
             fontFamily : 'Courier',
             fontSize : '18px',
@@ -71,14 +71,17 @@ class Menu extends Phaser.Scene{
     update() {
         
         if (Phaser.Input.Keyboard.JustDown(this.keys.gameEnter)){
+            sound.stop()
             this.scene.start('walkScene');
         }
 
         if(Phaser.Input.Keyboard.JustDown(this.keys.compendium)){
+            sound.stop()
             console.log("debug")
             this.scene.start('compendiumScene')
         }
         if(Phaser.Input.Keyboard.JustDown(this.keys.debugForMessage)){
+            sound.stop()
             this.scene.start('messageScene')
         }
 

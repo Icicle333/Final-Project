@@ -20,8 +20,8 @@ let config = {
 }
 let game = new Phaser.Game(config)
 let compendium, returnGame, walkUp1, walkUp2, walkDown1, walkDown2, walkLeft1, walkLeft2, walkRight1, walkRight2, debugForMessage
-
-
+//global for music
+let sound
 //Global variables for progression markers
 let scFound = false
 let fishFound = false

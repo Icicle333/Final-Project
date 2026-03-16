@@ -6,6 +6,8 @@ class Walk1 extends Phaser.Scene{
         this.canMove = true;
     }
     create(){
+        sound = this.sound.add('backgroundMusic', {loop: true})
+        sound.play()
         //Sprites
         this.anims.create({
             key: 'hurt',
@@ -27,8 +29,8 @@ class Walk1 extends Phaser.Scene{
         this.physics.world.setBounds(0, 0, 640, 480)
         this.player = new Character(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'player').setDepth(1)
         this.player.body.setCollideWorldBounds(true)
-        this.crab1 = new Crab(this, 150, 250, 'tempCrab').setDepth(1)
-        this.crab2 = new Crab(this, 350, 255, 'tempCrab').setDepth(1)
+        this.crab1 = new Crab(this, 150, 250, 'crab').setDepth(1)
+        this.crab2 = new Crab(this, 350, 255, 'crab').setDepth(1)
         this.crab = this.add.group([this.crab1, this.crab2])
         this.backGround = this.add.tileSprite(0, 0, 640, 480, 'backgroundForTitle').setOrigin(0, 0)
         
@@ -85,11 +87,13 @@ class Walk1 extends Phaser.Scene{
         })
         //Enters Tidepool, create group and set each specific group to the specific pool
         this.physics.add.collider(this.player, this.tidePool, (Player, pool) =>{
+            sound.stop()
             if(pool == this.tidePool1){
                 if(tidePool1_1Found == false){
                     tidePool1_1Found = true
                     tidePools1Found += 1
                 }
+                
                 this.scene.start("tidepool1Scene")
 
             }
@@ -150,10 +154,12 @@ class Walk1 extends Phaser.Scene{
 
         }
         if(this.player.x == 20){
+            sound.stop()
             this.scene.start("walkScene")
         }
         if(tidePools1Found >= 3){
             if(this.player.x == 620){
+                sound.stop()
                 this.scene.start("walk2Scene")
             }
         }
