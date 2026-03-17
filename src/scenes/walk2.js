@@ -116,6 +116,7 @@ class Walk2 extends Phaser.Scene{
             }
             
         })
+        //if statement for when you can finish the game
         if(scFound && fishFound && starFound && urchinFound && musselFound && crabFound){
             this.arrow1 = this.add.sprite(620, 100, 'arrow')
             this.arrow1.setTint(0x000000)
