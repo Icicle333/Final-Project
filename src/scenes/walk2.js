@@ -153,7 +153,7 @@ class Walk2 extends Phaser.Scene{
             if(walkRight1.isDown || walkRight2.isDown){
                 this.player.x += 2;
             }
-            this.physics.moveToObject(this.crab, this.player, 30)
+            this.physics.moveToObject(this.crab, this.player, 156)
 
         }
         if(this.player.x == 20){
