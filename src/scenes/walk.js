@@ -83,9 +83,17 @@ class Walk extends Phaser.Scene{
         //will serve as a replacement for animation of scene
         if(tidePools0Found >= 1){
             this.arrow1 = this.add.sprite(620, 100, 'arrow')
+            this.arrow1.setTint(0x000000)
+            
             this.arrow2 = this.add.sprite(620, 200, 'arrow')
+            this.arrow2.setTint(0x000000)
+            
             this.arrow3 = this.add.sprite(620, 300, 'arrow')
+            this.arrow3.setTint(0x000000)
+            
             this.arrow4 = this.add.sprite(620, 400, 'arrow')
+            this.arrow4.setTint(0x000000)
+            
             this.tweens.add({
                 targets: [this.arrow1, this.arrow2, this.arrow3, this.arrow4],
                 alpha: 0,
